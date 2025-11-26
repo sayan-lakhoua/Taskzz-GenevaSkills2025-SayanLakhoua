@@ -1,5 +1,7 @@
 # Taskzz - Sayan Lakhoua
 
+![Taskzz interface](src/logo-img/taskzz-logo.svg)
+
 ## GitHub
 Accès au GitHub via: 
 
