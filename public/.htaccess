@@ -1,0 +1,20 @@
+# Apache CORS configuration for the Taskzz API.
+# Replace example.com with your actual production host. Duplicate the SetEnvIf line if you
+# need to allow more origins. Keep the localhost entry if dev requests should keep working.
+<IfModule mod_headers.c>
+    SetEnvIf Origin "^https://(www\.)?example\.com$" ALLOWED_ORIGIN=$0
+    SetEnvIf Origin "^http://localhost:3000$" ALLOWED_ORIGIN=$0
+
+    # Only attach the headers when the origin matched one of the regex rules above.
+    Header always set Access-Control-Allow-Origin "%{ALLOWED_ORIGIN}e" env=ALLOWED_ORIGIN
+    Header always set Access-Control-Allow-Credentials "true" env=ALLOWED_ORIGIN
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization" env=ALLOWED_ORIGIN
+    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS" env=ALLOWED_ORIGIN
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Respond immediately to preflight calls instead of letting PHP run.
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^ - [R=204,L]
+</IfModule>

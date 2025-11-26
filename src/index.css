@@ -1,13 +1,28 @@
-body {
+/**
+ * Réinitialisation globale des styles
+ * Apple Reminders Clone - Geneva Skills
+ */
+
+/* Normalise et supprime les marges/paddings par défaut */
+html, body, #root {
+    height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Empêche la sélection sur les éléments interactifs */
+button, a {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Style de focus visible pour la navigation clavier */
+:focus-visible {
+    outline: 2px solid #007AFF;
+    outline-offset: 2px;
+}
+
+/* Retire le contour pour les clics souris */
+:focus:not(:focus-visible) {
+    outline: none;
 }
