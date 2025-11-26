@@ -192,7 +192,7 @@ function ListModal({ isOpen, onClose, onSubmit, initialData, t }) {
               id="list-name"
               type="text"
               className="form-input"
-              placeholder={t("listNamePlaceholder")}
+              placeholder={t("List Name...")}
               value={listName}
               onChange={(e) => setListName(e.target.value)}
               autoFocus
